@@ -1,0 +1,3 @@
+### Confidential files ###
+auth.server/src/main/resources/jdbc.properties
+database/variables.sh
