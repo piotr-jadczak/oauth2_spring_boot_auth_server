@@ -11,11 +11,11 @@ import static com.pj.auth.server.user.validation.UserResult.USER_WITH_USERNAME_N
 
 
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class AppUserDetailsService implements UserDetailsService {
 
     private final UserReadOnlyRepository userRepository;
 
-    CustomUserDetailsService(UserReadOnlyRepository userRepository) {
+    AppUserDetailsService(UserReadOnlyRepository userRepository) {
         this.userRepository = userRepository;
     }
 

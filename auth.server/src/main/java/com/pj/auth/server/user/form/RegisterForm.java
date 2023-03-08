@@ -15,7 +15,7 @@ public class RegisterForm {
     @UniqueEmail
     private String email;
 
-    @Size(min = 8, max = 32, message = "password length must be between 4 and 50 characters")
+    @Size(min = 8, max = 32, message = "password length must be between 4 and 32 characters")
     private String password;
 
     public RegisterForm() {

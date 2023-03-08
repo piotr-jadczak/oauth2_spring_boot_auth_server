@@ -12,24 +12,27 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class WebSecurityConfig {
 
+    private final String[] staticResourcesDirectories = {"/resources/**", "/icons/**", "/images/**", "/css/**"};
+    private final String[] unrestrictedUrls = {"/login", "/register", "/"};
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.httpBasic()
                 .and()
                     .authorizeHttpRequests()
-                    .requestMatchers("/resources/**", "/icons/**", "/images/**", "/css/**", "/login", "/register")
-                        .permitAll()
+                    .requestMatchers(staticResourcesDirectories).permitAll()
+                    .requestMatchers(unrestrictedUrls).permitAll()
                     .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/success_login_redirect")
-                    .permitAll()
-                .and()
-                    .logout()
-                    .logoutUrl("/logout")
-                    .logoutSuccessUrl("/")
-                    .permitAll()
+//                .and()
+//                .formLogin()
+//                    .loginPage("/login")
+//                    .defaultSuccessUrl("/success_login_redirect")
+//                    .permitAll()
+//                .and()
+//                    .logout()
+//                    .logoutUrl("/logout")
+//                    .logoutSuccessUrl("/")
+//                    .permitAll()
                 .and()
                 .build();
     }

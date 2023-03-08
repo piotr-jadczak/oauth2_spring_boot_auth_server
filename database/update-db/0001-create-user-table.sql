@@ -7,5 +7,5 @@ CREATE TABLE users (
     is_expired BOOLEAN NOT NULL,
     is_credentials_expired BOOLEAN NOT NULL,
     uuid VARCHAR(36) UNIQUE NOT NULL,
-    email VARCHAR(100) NOT NULL
+    email VARCHAR(100) UNIQUE NOT NULL
 );

@@ -6,9 +6,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Oauth2 authorization server implementation.">
-    <link rel="icon" th:href="@{/icons/favicon.ico}">
 </head>
 <body>
-
+    <main class="container bg-light">
+        <header class="row bg-dark pt-3 pb-3 text-white">
+            <h2>Oauth2 server</h2>
+        </header>
+        <div class="row">
+            <div class="col-3">
+                <div>
+                    <a>MENU</a>
+                </div>
+                <ul>
+                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a th:href="@{/register}">Register</a></li>
+                </ul>
+            </div>
+            <div class="col-9">
+                Page content
+            </div>
+        </div>
+        <footer class="row bg-dark pt-3 pb-3 text-white">
+            <a>2023 Spring boot 3 Ouath 2.0 authorization server implementation</a>
+        </footer>
+    </main>
 </body>
 </html>

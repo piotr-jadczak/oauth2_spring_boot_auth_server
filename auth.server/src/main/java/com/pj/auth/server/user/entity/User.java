@@ -3,10 +3,7 @@ package com.pj.auth.server.user.entity;
 import com.pj.auth.server.utils.hibernate.BasicEntity;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -79,25 +76,22 @@ public class User extends BasicEntity {
         return roles;
     }
 
-    public void addRole(RoleName roleName) {
-        var newRole = new Role(roleName);
-        this.roles.add(newRole);
-    }
+    private User() {}
 
-    public User() {}
-
-    public User(String username, String password) {
+    private User(String username, String email, String password, Role... roles) {
         this.username = username;
+        this.email = email;
         this.password = password;
-        setDefaultState();
-    }
-
-    private void setDefaultState () {
-        this.isLocked = false;
         this.isEnabled = true;
         this.isExpired = false;
         this.isCredentialsExpired = false;
-        this.roles = new HashSet<>(List.of(new Role(RoleName.USER)));
         this.uuid = UUID.randomUUID().toString();
+        this.roles = new HashSet<>(Arrays.asList(roles));
+
+    }
+
+    public static User createUser(String username, String email, String password, Role... roles) {
+        var newUser = new User(username, email, password, roles);
+        return newUser;
     }
 }
