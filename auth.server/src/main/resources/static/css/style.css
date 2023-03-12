@@ -1,0 +1,22 @@
+.menu-button {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin: 5px;
+    border: 1px solid;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: lightgray;
+}
+
+.menu-button:hover {
+    background-color: gray;
+    color: black;
+}
+
+.page-content {
+    padding-top: 10px;
+    padding-bottom: 40px;
+}

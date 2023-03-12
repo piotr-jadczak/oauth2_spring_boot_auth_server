@@ -1,5 +1,7 @@
 package com.pj.auth.server.user.security;
 
+import com.pj.auth.server.user.entity.Role;
+import com.pj.auth.server.user.entity.RoleName;
 import com.pj.auth.server.user.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -50,5 +52,9 @@ public class SecurityUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return user.isEnabled();
+    }
+
+    public boolean hasRole(RoleName roleName) {
+        return user.getRoles().contains(new Role(roleName));
     }
 }
